@@ -1,4 +1,5 @@
 def find_common_participants(first, second, separator=","):
+    """Function finds unions of sets and returns new sorted set"""
     set_1 = set(first.split(separator))
     set_2 = set(second.split(separator))
     total_set = set_1.intersection(set_2)

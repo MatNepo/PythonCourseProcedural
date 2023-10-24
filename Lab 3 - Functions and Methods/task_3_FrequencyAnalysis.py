@@ -1,17 +1,21 @@
 def count_letters(text):
-    text_low = text.lower()
-    final_text = {}
+    """The function counts how many times each letter appears in the text, output in the
+    form of a dictionary {letter -> amount}"""
+    text_low = text.lower()  # make all letters low
+    final_text = {}  # create empty dict
+    # fill the dict with amount of each letter
     for current in text_low:
-        if current.isalpha():
-            counter = text_low.count(current)
-            final_text[current] = float(counter)
+        if current.isalpha():  # check current character on letter
+            counter = text_low.count(current)  # amount of current letter
+            final_text[current] = float(counter)  # add to the dict
     return final_text
 
 
 def calculate_frequency(text_):
-    count_letters(text_)
-    frequency = count_letters(text_)
-    letters_amount = sum(frequency.values())
+    """The function counts frequency of each letter"""
+    frequency = count_letters(text_)  # call function count_letters
+    letters_amount = sum(frequency.values())  # total amount of letters
+    # Take current letter in the dict and find its frequency
     frequency = [(key, frequency[key] / letters_amount) for key, value in frequency.items()]
     return frequency
 
@@ -52,6 +56,6 @@ main_str = """
 Свои мне сказки говорил.
 """
 
-result = calculate_frequency(main_str)
+result = calculate_frequency(main_str)  # call function calculate_frequency
 for index, amount in result:
-    print(f"{index}:{amount: .2f}")
+    print(f"{index}:{amount: .2f}")  # round up the output to 2 characters after point

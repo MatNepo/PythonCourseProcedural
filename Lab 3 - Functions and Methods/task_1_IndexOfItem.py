@@ -1,4 +1,5 @@
 def index_of_item(total_items, current_item):
+    """Function finds the index from the list of items"""
     for index, value in enumerate(total_items):
         if current_item == value:
             return index
